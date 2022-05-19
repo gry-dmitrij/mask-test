@@ -1,0 +1,25 @@
+@use 'sass:math';
+
+@function dw($amount, $multiplier: 1) {
+  @return calc(var(--dw) * #{$amount} * #{$multiplier});
+}
+
+@function dh($amount) {
+  @return calc(var(--dh) * #{$amount});
+}
+
+@function mw($amount) {
+  @return calc(var(--mw) * #{$amount});
+}
+
+@function rel($amount, $relativeAmount, $relativeRealSize) {
+  @return calc(#{$amount} / #{$relativeAmount} * #{$relativeRealSize});
+}
+
+@function mh($amount) {
+  @return calc(var(--mh) * #{$amount});
+}
+
+@function real-vh($vh: 100) {
+  @return calc(var(--real100Vh) / 100 * #{$vh});
+}

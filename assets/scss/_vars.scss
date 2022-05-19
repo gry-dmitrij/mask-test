@@ -1,0 +1,14 @@
+@use 'sass:math';
+// @import '~bootstrap/scss/variables';
+
+$layout-width-desktop: 1440;
+$layout-height-desktop: 900;
+$layout-width-mobile: 320;
+$layout-height-mobile: 664;
+$layout-width-tablet: 768;
+$layout-height-tablet: 1024;
+
+$dw: math.div(100vw, $layout-width-desktop);
+$dh: math.div(100vh, $layout-width-desktop);
+$mw: math.div(100vw, $layout-width-mobile);
+$mh: math.div(100vh, $layout-height-mobile);

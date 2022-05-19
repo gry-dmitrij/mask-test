@@ -1,0 +1,12 @@
+#!/bin/bash
+
+cwd=`pwd`
+echo "cwd is $cwd"
+if [[ $cwd =~ "wsl" ]]; then
+  echo "WSL env"
+  wsl node ./node_modules/lint-staged/bin/lint-staged.js
+else
+  echo "Normal env"
+  yarn lint-staged
+fi
+
