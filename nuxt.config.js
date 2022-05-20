@@ -163,29 +163,29 @@ export default {
     middleware: ['init-store' /*, 'auth' */],
   },
 
-  auth: {
-    strategies: {
-      local: {
-        token: {
-          maxAge: 31536000, // 1 year
-        },
-        user: {
-          property: '',
-          autoFetch: true,
-        },
-        endpoints: {
-          login: {
-            url: '/api/auth',
-            method: 'post',
-          },
-          logout: '/api/logout',
-          user: {
-            url: '/api/user',
-          },
-        },
-      },
-    },
-  },
+  // auth: {
+  //   strategies: {
+  //     local: {
+  //       token: {
+  //         maxAge: 31536000, // 1 year
+  //       },
+  //       user: {
+  //         property: '',
+  //         autoFetch: true,
+  //       },
+  //       endpoints: {
+  //         login: {
+  //           url: '/api/auth',
+  //           method: 'post',
+  //         },
+  //         logout: '/api/logout',
+  //         user: {
+  //           url: '/api/user',
+  //         },
+  //       },
+  //     },
+  //   },
+  // },
 
   bootstrapVue: {
     bootstrapCSS: false, // подключаем отдельно в assets/scss

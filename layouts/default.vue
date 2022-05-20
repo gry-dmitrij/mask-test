@@ -11,9 +11,9 @@ export default {
   data() {
     return {}
   },
-  mounted() {
-    this.$store.dispatch('layout/calculateWindowHeight')
-  },
+  // mounted() {
+  //   this.$store.dispatch('layout/calculateWindowHeight')
+  // },
 }
 </script>
 
