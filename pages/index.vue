@@ -4,31 +4,30 @@
 <!--      v-imask="mask"-->
 <!--      @accept="onAccept"-->
 <!--      @complete="onComplete">-->
-    <BaseInput
+    <BaseInput2
       v-model="data"
       class="base-input"
       :mask="mask"
-      @complete="onComplete"
     />
     <p>{{data}}</p>
   </div>
 </template>
 
 <script>
-import BaseInput from "~/components/BaseInput";
+import BaseInput2 from "~/components/BaseInput2";
 // import { IMaskDirective } from 'vue-imask';
 
 export default {
   name: 'PageIndex',
   components: {
-    BaseInput
+    BaseInput2
   },
   // directives: {
   //   imask: IMaskDirective
   // },
   data () {
     return {
-      data: '',
+      data: '7952',
       mask: {
         mask: '+7 (#00) 000-00-00',
         definitions: {
@@ -37,10 +36,11 @@ export default {
       }
     }
   },
+  mounted() {
+    // this.data = '7952'
+  },
   methods: {
-    onComplete (e) {
-      console.log('complete', e);
-    },
+
   }
 }
 </script>

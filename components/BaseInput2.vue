@@ -1,19 +1,18 @@
 <template>
-  <input
-    v-imask="mask"
-    :value="data"
-    v-bind="$attrs"
-    v-on="inputListeners"
-  >
+<input
+  v-imask="mask"
+  v-bind="$attrs"
+  v-on="inputListeners"
+>
 </template>
 
 <script>
-// import { IMaskDirective } from 'vue-imask';
-//
+import IMaskDirective from '@/utils/imask'
+
 export default {
-  name: "BaseInput",
+  name: "BaseInput2",
   directives: {
-    // imask: IMaskDirective
+    imask: IMaskDirective
   },
   props: {
     mask: {
@@ -23,11 +22,6 @@ export default {
       })
     },
   },
-  data() {
-    return {
-      data:''
-    }
-  },
   computed: {
     inputListeners() {
       const vm = this;
@@ -36,18 +30,11 @@ export default {
         accept(e) {
           vm.onAccept(e)
         },
-        input(e) {
-          console.log('input: ', e)
+        input() {
+
         }
       }
     },
-  },
-  watch: {
-    '$attrs.value'(val) {
-      if (this.data !== val) {
-        this.data = val
-      }
-    }
   },
   methods: {
     onAccept(e) {
@@ -55,7 +42,6 @@ export default {
       this.$emit('input', maskRef.value)
     },
   },
-
 }
 </script>
 
