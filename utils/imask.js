@@ -1,3 +1,33 @@
+/**
+ * Маска работает в том числи с vuetify элементами
+ *
+ * Для работы добавить к элементу v-imask со строкой
+ * или объектом опций. Опции описаны здесь: https://imask.js.org/guide.html
+ *
+ * Для корректной работы директивы компонент долден подменять слушателей
+ * <input
+ *  ...
+ *  v-on="inputListeners"
+ * />
+ *
+ * computed: {
+ *     inputListeners() {
+ *       const vm = this;
+ *       return {
+ *         ...this.$listeners,
+ *         accept(e) {
+ *           const maskRef = e.detail;
+ *           vm.$emit('input', maskRef.value)
+ *         },
+ *         input(e) {
+ *
+ *         }
+ *       }
+ *     },
+ *   },
+ *
+ */
+
 import IMask from 'imask';
 
 function getInputElement(el) {
@@ -24,16 +54,22 @@ function destroyMask (el) {
 
 export default {
   name: 'imask',
-  bind(el, {value: opts}, vnode) {
+  bind(el, {value: opts}) {
     if (!opts) {
       opts = {
         mask: /^.*$/,
       }
+    } else if (typeof opts === 'string') {
+      opts = {
+        mask: opts,
+      }
     }
-    el = getInputElement(el)
-    initMask(el, opts)
-    if (el.value !== el.maskRef) {
-      fireEvent(el, 'accept', el.maskRef)
+    const inputEl = getInputElement(el)
+    initMask(inputEl, opts)
+
+    if (inputEl !== el) {
+      // для работы с vuetify
+      fireEvent(inputEl, 'accept', inputEl.maskRef)
     }
   },
   update(el, {value: opts}) {

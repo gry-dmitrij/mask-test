@@ -27,7 +27,7 @@ export default {
   // },
   data () {
     return {
-      data: '7952',
+      data: '952',
       mask: {
         mask: '+7 (#00) 000-00-00',
         definitions: {

@@ -34,25 +34,13 @@ export default {
       return {
         ...this.$listeners,
         accept(e) {
-          vm.onAccept(e)
+          const maskRef = e.detail;
+          vm.$emit('input', maskRef.value)
         },
         input(e) {
-          console.log('input: ', e)
+
         }
       }
-    },
-  },
-  watch: {
-    '$attrs.value'(val) {
-      if (this.data !== val) {
-        this.data = val
-      }
-    }
-  },
-  methods: {
-    onAccept(e) {
-      const maskRef = e.detail;
-      this.$emit('input', maskRef.value)
     },
   },
 
